@@ -37,7 +37,7 @@ export default {
   },
 
   async created() {
-    let url = `${API_URL}?$where=meeting_id=${this.$route.params.meeting_id} and nays > 0 and title="${this.$route.params.title}"`
+    let url = `${API_URL}?$where=meeting_id=${this.$route.params.meeting_id} and nays > 0 and vote is not null and title="${this.$route.params.title}"`
     const data = await axios.get(url);
     this.motions = data.data;
   },
