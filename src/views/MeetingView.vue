@@ -27,7 +27,7 @@ export default {
   },
 
   async created() {
-    let url = `${API_URL}?$where=meeting_id=${this.$route.params.meeting_id} and nays > 0&$select=heading&$group=heading`
+    let url = `${API_URL}?$where=meeting_id=${this.$route.params.meeting_id} and nays >= 0&$select=heading&$group=heading`
     const data = await axios.get(url);
     this.headings = data.data;
   }
